@@ -1,0 +1,12 @@
+node_modules
+package.json
+package-lock.json
+bun.lock
+
+.DS_Store
+**/.DS_Store
+.env
+.env.*
+!.env.example
+
+vertex-auth.json
