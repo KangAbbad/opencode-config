@@ -30,10 +30,28 @@
             "output": [
               "text"
             ]
+          },
+          "options": {
+            "reasoningEffort": "high",
+            "textVerbosity": "low",
+            "reasoningSummary": "auto",
+            "include": ["reasoning.encrypted_content"]
           }
         },
         "cx/gpt-5.5": {
           "name": "cx/gpt-5.5",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "xm/mimo-v2.5-pro": {
+          "name": "xm/mimo-v2.5-pro",
           "modalities": {
             "input": [
               "text",
@@ -52,7 +70,7 @@
     "explorer": {
       "description": "Fast explorer subagent for codebase exploration",
       "mode": "subagent",
-      "model": "9router/cx/gpt-5.5-review"
+      "model": "9router/cx/gpt-5.5"
     }
   }
 }

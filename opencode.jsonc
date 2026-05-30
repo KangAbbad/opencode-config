@@ -38,6 +38,17 @@
       "type": "remote",
       "url": "https://mcp.cloudflare.com/mcp",
       "enabled": true
+    },
+    "pencil": {
+      "command": [
+        "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+        "--app",
+        "desktop",
+        "--agent",
+        "openCodeCLI"
+      ],
+      "enabled": true,
+      "type": "local"
     }
   },
   "tools": {
@@ -47,18 +58,21 @@
   "permission": {
     "read": {
       "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow"
+      "$HOME/.config/opencode/**": "allow",
+      "$HOME/tmp/**": "allow"
     },
     "edit": {
       "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow"
+      "$HOME/.config/opencode/**": "allow",
+      "$HOME/tmp/**": "allow"
     },
     "bash": {
       "cd $HOME/Documents/MyProject*": "allow"
     },
     "external_directory": {
       "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow"
+      "$HOME/.config/opencode/**": "allow",
+      "$HOME/tmp/**": "allow"
     }
   }
 }
