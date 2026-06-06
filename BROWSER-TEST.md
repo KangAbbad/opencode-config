@@ -1,7 +1,8 @@
 **Browser Testing Requirements:**
 
 - When the user asks for browser testing, load and use the `playwright-cli` skill autonomously for real browser interaction.
-- Prefer headed browser when available; headless is acceptable when headed is unavailable or impractical.
+- Use headed browser by default.
+- Use headless browser only when the user explicitly asks, or when headed mode fails or is unavailable and the user confirms headless fallback.
 - Do not substitute simulated testing, manual reasoning, code inspection, or assumed behavior for browser verification.
 - Navigate the app, interact with UI controls, observe real page state, capture errors, and verify outcomes in the browser.
 - Do not create, modify, or write unit/e2e/spec/test code files (`*.spec.*`, `*.test.*`, `*.e2e.*`, or similar) unless the user explicitly asks for test code.
