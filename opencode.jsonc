@@ -2,7 +2,8 @@
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
     "/Users/kangabbad/.config/opencode/AGENTS.md",
-    "/Users/kangabbad/.config/opencode/ANTI-MORON-AGENTS.md"
+    "/Users/kangabbad/.config/opencode/ANTI-MORON-AGENTS.md",
+    "/Users/kangabbad/.config/opencode/BROWSER-TEST.md"
   ],
   "plugin": [
     "opencode-wakatime"
