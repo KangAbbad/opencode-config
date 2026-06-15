@@ -30,12 +30,6 @@
             "output": [
               "text"
             ]
-          },
-          "options": {
-            "reasoningEffort": "high",
-            "textVerbosity": "low",
-            "reasoningSummary": "auto",
-            "include": ["reasoning.encrypted_content"]
           }
         },
         "cx/gpt-5.5": {
@@ -50,8 +44,20 @@
             ]
           }
         },
-        "xm/mimo-v2.5-pro": {
-          "name": "xm/mimo-v2.5-pro",
+        "tr/MiniMax-M3": {
+          "name": "tr/MiniMax-M3",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "TokenRouter": {
+          "name": "TokenRouter",
           "modalities": {
             "input": [
               "text",
@@ -65,12 +71,12 @@
       }
     }
   },
-  "model": "9router/KIROxGPT",
+  "model": "9router/TokenRouter",
   "agent": {
     "explorer": {
       "description": "Fast explorer subagent for codebase exploration",
       "mode": "subagent",
-      "model": "9router/cx/gpt-5.5"
+      "model": "9router/tr/MiniMax-M3"
     }
   }
 }
