@@ -5,11 +5,11 @@
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router"
+        "apiKey": "sk-14eee5b1f1ba57ae-gacuoj-767673d2"
       },
       "models": {
-        "cx/gpt-5.5-review": {
-          "name": "cx/gpt-5.5-review",
+        "quick-edits": {
+          "name": "quick-edits",
           "modalities": {
             "input": [
               "text",
@@ -20,8 +20,140 @@
             ]
           }
         },
-        "KIROxGPT": {
-          "name": "KIROxGPT",
+        "daily-coding": {
+          "name": "daily-coding",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "heavy-refactor": {
+          "name": "heavy-refactor",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "security-critical": {
+          "name": "security-critical",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "full-free": {
+          "name": "full-free",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/deepseek/deepseek-v4-flash": {
+          "name": "cmc/deepseek/deepseek-v4-flash",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/deepseek/deepseek-v4-pro": {
+          "name": "cmc/deepseek/deepseek-v4-pro",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/zai-org/GLM-5.1": {
+          "name": "cmc/zai-org/GLM-5.1",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/moonshotai/Kimi-K2.6": {
+          "name": "cmc/moonshotai/Kimi-K2.6",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/MiniMaxAI/MiniMax-M2.7": {
+          "name": "cmc/MiniMaxAI/MiniMax-M2.7",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/Qwen/Qwen3.6-Plus": {
+          "name": "cmc/Qwen/Qwen3.6-Plus",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/Qwen/Qwen3.6-Max-Preview": {
+          "name": "cmc/Qwen/Qwen3.6-Max-Preview",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "cmc/stepfun/Step-3.5-Flash": {
+          "name": "cmc/stepfun/Step-3.5-Flash",
           "modalities": {
             "input": [
               "text",
@@ -44,20 +176,8 @@
             ]
           }
         },
-        "tr/MiniMax-M3": {
-          "name": "tr/MiniMax-M3",
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
-        "TokenRouter": {
-          "name": "TokenRouter",
+        "cx/gpt-5.5-review": {
+          "name": "cx/gpt-5.5-review",
           "modalities": {
             "input": [
               "text",
@@ -71,12 +191,12 @@
       }
     }
   },
-  "model": "9router/TokenRouter",
+  "model": "9router/full-free",
   "agent": {
     "explorer": {
       "description": "Fast explorer subagent for codebase exploration",
       "mode": "subagent",
-      "model": "9router/tr/MiniMax-M3"
+      "model": "9router/cx/gpt-5.6-luna"
     }
   }
 }

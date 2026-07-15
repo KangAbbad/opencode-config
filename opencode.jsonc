@@ -26,7 +26,8 @@
     "firecrawl": {
       "type": "remote",
       "url": "https://mcp.firecrawl.dev/{env:FIRECRAWL_API_KEY}/v2/mcp",
-      "enabled": true
+      "enabled": true,
+      "oauth": false
     },
     "shadcn": {
       "type": "local",
@@ -57,6 +58,11 @@
       ],
       "enabled": true,
       "type": "local"
+    },
+    "jam": {
+      "type": "remote",
+      "url": "https://mcp.jam.dev/mcp",
+      "enabled": true
     }
   },
   "tools": {
