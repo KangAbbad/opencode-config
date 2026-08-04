@@ -6,7 +6,8 @@
     "/Users/kangabbad/.config/opencode/BROWSER-TEST.md"
   ],
   "plugin": [
-    "opencode-wakatime"
+    "opencode-wakatime",
+    "./plugin/mnemosyne-autolog.ts"
   ],
   "mcp": {
     "exa": {
@@ -48,20 +49,23 @@
         "Authorization": "Bearer {env:CLOUDFLARE_API_TOKEN}"
       }
     },
-    "pencil": {
-      "command": [
-        "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
-        "--app",
-        "desktop",
-        "--agent",
-        "openCodeCLI"
-      ],
-      "enabled": true,
-      "type": "local"
-    },
     "jam": {
       "type": "remote",
       "url": "https://mcp.jam.dev/mcp",
+      "enabled": true
+    },
+    "gsc": {
+      "type": "local",
+      "command": ["/Users/kangabbad/.local/bin/uvx", "mcp-search-console"],
+      "environment": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "{env:GSC_OAUTH_CLIENT_SECRETS_FILE}",
+        "GSC_ALLOW_DESTRUCTIVE": "true"
+      },
+      "enabled": true
+    },
+    "mnemosyne": {
+      "type": "local",
+      "command": ["/Users/kangabbad/.local/share/mnemosyne/venv/bin/mnemosyne", "mcp"],
       "enabled": true
     }
   },

@@ -10,3 +10,4 @@ bun.lock
 !.env.example
 
 vertex-auth.json
+*client_secret*.json
