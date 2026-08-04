@@ -187,16 +187,68 @@
               "text"
             ]
           }
+        },
+        "cx/gpt-5.6-terra": {
+          "name": "cx/gpt-5.6-terra",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gcli/grok-4.5": {
+          "name": "gcli/grok-4.5",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gcli/grok-4.5-high": {
+          "name": "gcli/grok-4.5-high",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gcli/grok-4.5-low": {
+          "name": "gcli/grok-4.5-low",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gcli/grok-build": {
+          "name": "gcli/grok-build",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         }
       }
-    }
-  },
-  "model": "9router/full-free",
-  "agent": {
-    "explorer": {
-      "description": "Fast explorer subagent for codebase exploration",
-      "mode": "subagent",
-      "model": "9router/cx/gpt-5.6-luna"
     }
   }
 }
