@@ -5,92 +5,80 @@
     "/Users/kangabbad/.config/opencode/ANTI-MORON-AGENTS.md",
     "/Users/kangabbad/.config/opencode/BROWSER-TEST.md"
   ],
-  "plugin": [
-    "opencode-wakatime",
-    "./plugin/mnemosyne-autolog.ts"
+  "plugins": [
+    "@wakatime/opencode-wakatime"
   ],
   "mcp": {
-    "exa": {
-      "type": "remote",
-      "url": "https://mcp.exa.ai/mcp?exaApiKey={env:EXA_API_KEY}",
-      "enabled": true,
-      "oauth": false
-    },
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+    "servers": {
+      "exa": {
+        "type": "remote",
+        "url": "https://mcp.exa.ai/mcp?exaApiKey={env:EXA_API_KEY}",
+        "disabled": false,
+        "oauth": false
       },
-      "enabled": true
-    },
-    "firecrawl": {
-      "type": "remote",
-      "url": "https://mcp.firecrawl.dev/{env:FIRECRAWL_API_KEY}/v2/mcp",
-      "enabled": true,
-      "oauth": false
-    },
-    "shadcn": {
-      "type": "local",
-      "command": ["npx", "shadcn@latest", "mcp"],
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "@playwright/mcp@latest"],
-      "enabled": false
-    },
-    "cloudflare": {
-      "type": "remote",
-      "url": "https://mcp.cloudflare.com/mcp",
-      "enabled": true,
-      "oauth": false,
-      "headers": {
-        "Authorization": "Bearer {env:CLOUDFLARE_API_TOKEN}"
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        },
+        "disabled": false
+      },
+      "firecrawl": {
+        "type": "remote",
+        "url": "https://mcp.firecrawl.dev/{env:FIRECRAWL_API_KEY}/v2/mcp",
+        "disabled": false,
+        "oauth": false
+      },
+      "shadcn": {
+        "type": "local",
+        "command": ["npx", "shadcn@latest", "mcp"],
+        "disabled": false
+      },
+      "playwright": {
+        "type": "local",
+        "command": ["npx", "@playwright/mcp@latest"],
+        "disabled": true
+      },
+      "cloudflare": {
+        "type": "remote",
+        "url": "https://mcp.cloudflare.com/mcp",
+        "disabled": false,
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:CLOUDFLARE_API_TOKEN}"
+        }
+      },
+      "jam": {
+        "type": "remote",
+        "url": "https://mcp.jam.dev/mcp",
+        "disabled": false
+      },
+      "gsc": {
+        "type": "local",
+        "command": ["/Users/kangabbad/.local/bin/uvx", "mcp-search-console"],
+        "environment": {
+          "GSC_OAUTH_CLIENT_SECRETS_FILE": "{env:GSC_OAUTH_CLIENT_SECRETS_FILE}",
+          "GSC_ALLOW_DESTRUCTIVE": "true"
+        },
+        "disabled": false
       }
-    },
-    "jam": {
-      "type": "remote",
-      "url": "https://mcp.jam.dev/mcp",
-      "enabled": true
-    },
-    "gsc": {
-      "type": "local",
-      "command": ["/Users/kangabbad/.local/bin/uvx", "mcp-search-console"],
-      "environment": {
-        "GSC_OAUTH_CLIENT_SECRETS_FILE": "{env:GSC_OAUTH_CLIENT_SECRETS_FILE}",
-        "GSC_ALLOW_DESTRUCTIVE": "true"
-      },
-      "enabled": true
-    },
-    "mnemosyne": {
-      "type": "local",
-      "command": ["/Users/kangabbad/.local/share/mnemosyne/venv/bin/mnemosyne", "mcp"],
-      "enabled": true
     }
   },
   "tools": {
     // optional: enable/disable Exa tools via glob
     "exa_*": true
   },
-  "permission": {
-    "read": {
-      "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow",
-      "$HOME/tmp/**": "allow"
-    },
-    "edit": {
-      "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow",
-      "$HOME/tmp/**": "allow"
-    },
-    "bash": {
-      "cd $HOME/Documents/MyProject*": "allow"
-    },
-    "external_directory": {
-      "$HOME/Documents/MyProject/**": "allow",
-      "$HOME/.config/opencode/**": "allow",
-      "$HOME/tmp/**": "allow"
-    }
-  }
+  "permissions": [
+    { "action": "read", "resource": "$HOME/Documents/MyProject/**", "effect": "allow" },
+    { "action": "read", "resource": "$HOME/.config/opencode/**", "effect": "allow" },
+    { "action": "read", "resource": "$HOME/tmp/**", "effect": "allow" },
+    { "action": "edit", "resource": "$HOME/Documents/MyProject/**", "effect": "allow" },
+    { "action": "edit", "resource": "$HOME/.config/opencode/**", "effect": "allow" },
+    { "action": "edit", "resource": "$HOME/tmp/**", "effect": "allow" },
+    { "action": "shell", "resource": "cd $HOME/Documents/MyProject*", "effect": "allow" },
+    { "action": "external_directory", "resource": "$HOME/Documents/MyProject/**", "effect": "allow" },
+    { "action": "external_directory", "resource": "$HOME/.config/opencode/**", "effect": "allow" },
+    { "action": "external_directory", "resource": "$HOME/tmp/**", "effect": "allow" }
+  ]
 }

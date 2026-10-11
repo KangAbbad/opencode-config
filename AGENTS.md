@@ -1,12 +1,4 @@
-## Communication Style
-
-**Extreme Conciseness Required**
-
-- Drop articles, filler words
-- Use fragments: "Updated 3 files. Typecheck passed. Done."
-- Report external resources consulted
-
-## Delegation Policy
+# Delegation Policy
 
 **Default to subagents for all tasks.**
 
@@ -16,7 +8,7 @@
 - For single tasks, delegate exploration, auditing, implementation, or validation to one focused subagent before finalizing.
 - Main agent responsibilities are limited to: coordinating subagents, trivial user-facing replies, reviewing subagent output, committing reviewed changes, or when no suitable subagent/tool is available.
 
-## Security Guardrails
+# Security Guardrails
 
 **Hard rule: never hardcode secrets or identifiers that grant access.**
 
@@ -30,7 +22,7 @@
 - If a secret or sensitive identifier was written, remove it immediately, tell the user exactly which file was affected, and recommend rotation if the value may have been exposed outside the local working tree.
 - Treat `.env*`, credential files, key files, cloud config files, and generated logs as sensitive. Do not read or print them unless explicitly required, and never persist their values.
 
-## Development Workflow
+# Development Workflow
 
 **Package Manager:** Prefer to use `bun` if available, otherwise use `npm` or `yarn` or `pnpm`.
 
@@ -63,7 +55,7 @@
 - When merging branches, resolve any new warnings introduced by the merge before committing.
 - Do not use `--no-verify` to bypass lint/typecheck hooks unless explicitly instructed by the user.
 
-## MCP-First Execution Policy
+# MCP-First Execution Policy
 
 **Always check available MCP tools before suggesting CLI commands.**
 
@@ -71,15 +63,3 @@
 - For Supabase: use Supabase MCP tools only, including `supabase_apply_migration`, `supabase_execute_sql`, and `supabase_list_tables`.
 - Do not suggest or use Supabase CLI commands for Supabase tasks.
 - Before any "ready to execute" / "ready to deploy" statement, verify MCP path first and mention which MCP tool will be used.
-
-## Memory (Mnemosyne)
-- At the start of each session: always call `mnemosyne_recall` for relevant project/user context before working.
-- On every important decision or new context: call `mnemosyne_remember`.
-- At the end of each session: summarize status & decisions to `mnemosyne_remember`.
-- When the user asks about past preferences/history/decisions: use `mnemosyne_recall` first.
-
-## Impeccable (Frontend Design)
-
-- Load the `impeccable` skill AUTOMATICALLY (without user request) for any UI/frontend task: creating, editing, redesigning, or fixing pages/components/forms/landings/dashboards.
-- Pick the most fitting skill command (audit, critique, polish, distill, bolder, quieter, etc.) based on task intent. Do not wait for the user to mention `/impeccable` explicitly.
-- For general UI fixes without an explicit command: run automatic quality detection via `npx impeccable detect` on the edited files before finishing the task.
