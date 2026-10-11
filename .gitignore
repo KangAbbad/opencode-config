@@ -11,3 +11,7 @@ bun.lock
 
 vertex-auth.json
 *client_secret*.json
+# Local-only / sensitive - never commit
+service.json
+cli.json
+v1-backup-*/
