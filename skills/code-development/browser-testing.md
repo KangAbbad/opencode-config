@@ -1,4 +1,4 @@
-**Browser Testing Requirements:**
+# Browser Testing Requirements
 
 - When the user asks for browser testing, load and use the `playwright-cli` skill autonomously for real browser interaction.
 - Use headed browser by default.
