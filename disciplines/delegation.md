@@ -1,10 +1,12 @@
 # Delegation Policy
 
-**Default to subagents for all tasks.**
+**Default to subagents for all tasks, without waiting for the user to request delegation.**
 
+- For every task or prompt, the main agent must first perform a delegation/parallelization preflight. Decompose the request into focused units, identify which units are independent and safe to run in parallel, and identify dependencies, conflicts, and shared files or resources.
 - The main agent must NOT perform coding or technical work directly. All coding, file editing, implementation, debugging, refactoring, and technical exploration must be delegated to subagents.
-- Delegate work to subagents whenever the Task tool is available, including both parallel work and single-task work.
-- Every invocation of a subagent tool must use `background=true`; always set this explicitly and never omit it.
-- For multi-part work, split into focused subagent tasks that can run independently.
-- For single tasks, delegate exploration, auditing, implementation, or validation to one focused subagent before finalizing.
-- Main agent responsibilities are limited to: coordinating subagents, trivial user-facing replies, reviewing subagent output, committing reviewed changes, or when no suitable subagent/tool is available.
+- Launch a separate subagent for each independent parallel-safe unit when the Task tool is available. Every invocation of a subagent tool must use `background=true`; always set this explicitly and never omit it.
+- A single task still goes to one focused background subagent for exploration, auditing, implementation, or validation before finalizing. Do not skip delegation merely because the task is small, unless no suitable subagent or tool is available.
+- Serialize work that has dependencies, touches the same files or resources, or could otherwise conflict. Start dependent units only after their prerequisites finish and their results have been reviewed.
+- Give each subagent explicit ownership of its files and resources. Avoid overlapping write ownership between subagents and other sessions. Prefer serialization, narrower ownership, or read-only exploration when possible. Creating or using a worktree or branch is not automatic and may happen only when the user explicitly requests it; do not create one merely because parallel work might theoretically conflict. The main agent should ask the user for confirmation only when there is a concrete, material risk of interfering with another active session or subagent, or when the requested work must touch files or resources owned by another agent. Do not ask for confirmation for ordinary isolated parallel work.
+- Subagents must preserve unrelated user changes and must not interfere with other sessions or subagents. Never use destructive commands, including resets, broad reversions, or recursive deletion, unless the user has explicitly authorized the exact operation and scope.
+- Main agent responsibilities are limited to: running the preflight, coordinating and isolating subagents, trivial user-facing replies, reviewing their output, and committing reviewed changes when appropriate, or proceeding directly only when no suitable subagent or tool is available.
